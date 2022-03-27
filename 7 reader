@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+int const RECORDED_NUMBER = 7;
+int main() {
+	int numbersEntered;
+	int row;
+	int numberGiven;
+	int rowNumber = 0;
+	int lowestSeven = 0;
+	int highestSeven = 0;
+	cout << "How many numbers will be entered?";
+	cin >> numbersEntered;
+
+		for (row = 0; row < numbersEntered; row++) {
+			cout << "Enter num :";
+			cin >> numberGiven;
+				rowNumber++;
+				if (numberGiven == RECORDED_NUMBER) {
+					highestSeven = rowNumber;
+
+					if (lowestSeven == 0) {
+						lowestSeven = rowNumber;
+					}
+
+				}
+				
+		}
+		if (lowestSeven == 0) {
+			cout << "Sorry, no 7's were entered." << endl;
+		}
+		else {
+			cout << "The first 7 was in position " << lowestSeven << endl;
+			cout << "The last 7 was in position " << highestSeven << endl;
+		}
+		system("pause");
+}
+
+/* sample output 1 :
+How many numbers will be entered?8
+Enter num :5
+Enter num :7
+Enter num :6
+Enter num :7
+Enter num :7
+Enter num :3
+Enter num :8
+Enter num :6
+The first 7 was in position 2
+The last 7 was in position 5
+Press any key to continue . . .
+
+sample output 2:
+How many numbers will be entered?8
+Enter num :5
+Enter num :2
+Enter num :6
+Enter num :7
+Enter num :1
+Enter num :3
+Enter num :8
+Enter num :6
+The first 7 was in position 4
+The last 7 was in position 4
+Press any key to continue . . .
+
+sample output 3:
+How many numbers will be entered?8
+Enter num :5
+Enter num :1
+Enter num :6
+Enter num :5
+Enter num :9
+Enter num :3
+Enter num :8
+Enter num :6
+Sorry, no 7's were entered.
+Press any key to continue . . .
+*/
