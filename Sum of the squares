@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int numberEntered;
+int numberRange = 0;
+int total =0 ;
+int main() {
+	
+	cout << " Enter a number greater than 0( less than 1 to quit): ";
+	cin >> numberEntered;
+
+	while (numberEntered > 0) {
+
+			while(numberRange <= numberEntered){
+				total = numberRange * numberRange + total;
+			numberRange++;
+			
+		}
+			cout << "the sum of the squares from 1 to " << numberEntered << " is " << total << endl;
+			numberRange = 0;
+			total = 0;
+			cout << "Enter A number greater than 0(less than 1 to quit): ";
+			cin >> numberEntered;
+	}
+	//cout << total;
+	system("pause");
+}
+
+/* sample screen output:
+ Enter a number greater than 0( less than 1 to quit): 4
+the sum of the squares from 1 to 4 is 30
+Enter A number greater than 0(less than 1 to quit): 1
+the sum of the squares from 1 to 1 is 1
+Enter A number greater than 0(less than 1 to quit): 0
+Press any key to continue . . .
+*/
