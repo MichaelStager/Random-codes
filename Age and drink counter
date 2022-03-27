@@ -1,0 +1,99 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+	double averageAge = 0;
+	double numberOfAttendee = 0;
+	double overAllAge = 0;
+	int ageOfAttendee = 0;
+	int zeroToEighteen = 0;
+	int nineteenToThirty = 0;
+	int ThirtyoneToFourty = 0;
+	int fourtyoneToSixty = 0;
+	int overSixy = 0;
+	int highestAge;
+	int smallestAge;
+	char foodPref;
+	int popcorn = 0;
+	int soda = 0;
+	int bothFood = 0;
+	
+	cout << fixed << setprecision(1);
+	cout << "enter age of attendee ( negative number to quit):";
+	cin >> ageOfAttendee;
+	
+	smallestAge = ageOfAttendee;
+	highestAge = ageOfAttendee;
+
+	while (ageOfAttendee >= 0) {
+		cout << "enter attendees food preference('p' for popcorn , 's' for soda, 'b' for both) :";
+		cin >> foodPref;
+		if (foodPref == 'p') {
+			popcorn++;
+		}
+		else if (foodPref == 's') {
+			soda++;
+		}
+		else if (foodPref == 'b') {
+			bothFood++;
+		}
+		if (ageOfAttendee < smallestAge) {
+			smallestAge = ageOfAttendee;
+		}
+		if (ageOfAttendee > highestAge) {
+			highestAge = ageOfAttendee;
+		}
+		if (ageOfAttendee < 0) {
+			numberOfAttendee--;
+			overAllAge = overAllAge - ageOfAttendee;
+		}
+		else if (ageOfAttendee <= 18) {
+			zeroToEighteen++;
+
+		}
+		else if (ageOfAttendee <= 30) {
+			nineteenToThirty++;
+
+		}
+		else if (ageOfAttendee <= 40) {
+			ThirtyoneToFourty++;
+
+		}
+		else if (ageOfAttendee <= 60) {
+			fourtyoneToSixty++;
+
+		}
+		else if (ageOfAttendee > 60) {
+			overSixy++;
+		}
+		numberOfAttendee++;
+		overAllAge = overAllAge + ageOfAttendee;
+
+		cout << "enter age of attendee ( negative number to quit):";
+		cin >> ageOfAttendee;
+		
+	}
+	if (overAllAge != 0) {
+		averageAge = overAllAge / numberOfAttendee;
+	}
+	cout << "age 0 to 18: " << zeroToEighteen << endl;
+	cout << "age 19 to 30: " << nineteenToThirty << endl;
+	cout << "age 31 to 40: " << ThirtyoneToFourty << endl;
+	cout << "age 41 to 60: " << fourtyoneToSixty << endl;
+	cout << "over 60: " << overSixy << endl;
+	cout <<endl << "food preference popcorn: " << popcorn << endl;
+	cout << "food preference soda: " << soda << endl;
+	cout << "food preference both: " << bothFood << endl;
+	if (overAllAge > 0) {
+		cout << "the average age is :" << averageAge << endl;
+		cout << "the youngest person in attendance was " << smallestAge << endl;
+		cout << "the oldest person in attendance was " << highestAge << endl;
+	}
+	else {
+		cout << "there is no average age:" <<  endl;
+		cout << "there is no youngest age:" <<  endl;
+		cout << "there is no oldest age: " <<  endl;
+	}
+	system("pause");
+}
