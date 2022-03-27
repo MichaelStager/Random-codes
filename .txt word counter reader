@@ -1,0 +1,73 @@
+/* Michael Stager,
+This program will read the amount of words inside a text document.
+it will ask the user the name of the text document. then using a special 
+character loop will count the amount of words. it also has if else statements
+so that if you type quit it stops the program and if you type a non existing program it 
+will give you an error.
+*/
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main() {
+	//declaring my variables
+	string fileName;
+	string fileText;
+	int wordAmount = 0;
+
+	cout << "enter file you want to open: ";
+	cin >> fileName;
+
+	//opens the file the user enters
+	ifstream infile(fileName);
+	
+	//if user enters quit it will stop the program
+	while (fileName != "quit") {
+	
+		// if the user enters a filename that does not exist it will give a error
+		if (!infile) {
+		cout << "file did not open :(" << endl;
+		infile.close();
+		cout << "enter file you want to open :";
+		cin >> fileName;
+		infile.open(fileName);
+
+		// counts the amount of words in the user entered file.
+	} else {
+			infile >> fileText;
+			
+			while (infile) {
+				infile >> fileText;
+				wordAmount++;
+			}
+		
+		// prints out the info to the user.
+		cout << "this file has " << wordAmount << " words" << endl;
+		infile.close();
+		wordAmount = 0;
+		cout << "enter file you want to open :";
+		cin >> fileName;
+		 infile.open(fileName);
+		}
+	}
+	
+	system("pause");
+}
+/*
+enter file you want to open: file1.txt
+this file has 7 words
+enter file you want to open :file2.txt
+this file has 10 words
+enter file you want to open :file3.txt
+this file has 21 words
+enter file you want to open :file4.txt
+this file has 19 words
+enter file you want to open :file5.txt
+this file has 22 words
+enter file you want to open :file6.txt
+file did not open :(
+enter file you want to open :quit
+Press any key to continue . . .
+
+*/
